@@ -1,0 +1,57 @@
+def main_menu():
+  print("Main Menu:")
+  print("1. Drinks")
+  print("2. Socks")
+  print("3. Utensils")
+  print("4. Supplies")
+  choice = input("Enter your choice (1-4): ")
+  if choice == "1":
+      drinks_menu()
+  elif choice == "2":
+      print("Socks menu is not implemented yet.")
+  elif choice == "3":
+      print("Utensils menu is not implemented yet.")
+  elif choice == "4":
+      print("Supplies menu is not implemented yet.")
+  else:
+      print("Invalid choice. Please enter a number between 1 and 4.")
+      main_menu()
+
+def drinks_menu():
+  print("\nDrinks Menu:")
+  options = {
+      "Cola": 0,
+      "FP": 0,
+      "LEM": 0,
+      "ORA": 0,
+      "RB": 0,
+      "LL": 0
+  }
+  while True:
+      print_options(options)
+      print("7. Go back to main menu")
+      choice = input("Enter your choice (1-7): ")
+      if choice == "7":
+          break
+      elif choice in map(str, range(1, 7)):
+          update_option(options, choice)
+      else:
+          print("Invalid choice. Please enter a number between 1 and 7.")
+
+def print_options(options):
+  print("\nCurrent quantities:")
+  for index, (drink, quantity) in enumerate(options.items(), start=1):
+      print(f"{index}. {drink}: {quantity}")
+
+def update_option(options, choice):
+  drink_index = int(choice) - 1
+  drink_names = list(options.keys())
+  drink = drink_names[drink_index]
+  new_quantity = input(f"Enter new quantity for {drink}: ")
+  if new_quantity.isdigit():
+      options[drink] = int(new_quantity)
+  else:
+      print("Invalid input. Quantity must be a positive integer.")
+
+if __name__ == "__main__":
+  main_menu()
