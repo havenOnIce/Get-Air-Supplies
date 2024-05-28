@@ -1,3 +1,4 @@
+"Main menu is for selecting the supplies you'd like to track/manage"
 def main_menu():
   print("Main Menu:")
   print("1. Drinks")
@@ -17,6 +18,7 @@ def main_menu():
       print("Invalid choice. Please enter a number between 1 and 4.")
       main_menu()
 
+"Tracking and managing drinks, enter the # of the labeled drink, then enter the amount of the drinks you have"
 def drinks_menu():
   print("\nDrinks Menu:")
   options = {
